@@ -11,4 +11,8 @@ public class VendaException extends Exception {
 		super(msg);
 	}
 	
+	public VendaException(){
+		super("Serviço requisitado esta indisponivel.");
+	}
+	
 }

@@ -10,5 +10,9 @@ public class ClienteException extends Exception {
 	public ClienteException(String msg){
 		super(msg);
 	}
+	
+	public ClienteException(){
+		super("Serviço requisitado esta indisponivel.");
+	}
 
 }

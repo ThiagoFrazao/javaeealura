@@ -14,6 +14,11 @@ public class Venda {
 		this.id = id;
 	}
 	
+	public Venda(float total, Cliente cliente){
+		this.total = total;
+		this.cliente = cliente;
+	}
+	
 	public Venda(int id, float total, Cliente cliente){
 		this.id = id;
 		this.total = total;
@@ -52,9 +57,9 @@ public class Venda {
 		str.append("Comprador = " + this.getCliente().getPrimeiroNome()+ " " + this.getCliente().getSegundoNome() + "\n");
 		str.append("Total = " + this.getTotal());
 		
-		return str.toString();
-		
-		
+		return str.toString();		
 	}
+	
+	
 
 }

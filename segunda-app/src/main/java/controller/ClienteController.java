@@ -38,10 +38,16 @@ public class ClienteController {
 	@GET
 	@Path("/listar")
 	public Response listarTodosClientes(){
+		Response retorno = null;
+		List<Cliente> clientes = null;
+		try {
+			clientes = clienteDAO.listarClientes();
+			retorno = Resposta.montarResposta(Status.OK, clientes);
+		} catch (ClienteException e) {
+			retorno = Resposta.respostaErro(e.getMessage());
+		}		
 		
-		List<Cliente> clientes = clienteDAO.listarClientes();		
-		
-		return Resposta.montarResposta(Status.OK, clientes);
+		return retorno;
 	}
 	
 	@GET
@@ -81,7 +87,11 @@ public class ClienteController {
 		
 		if(novoCliente.verificarValidade()){			
 			if(!clienteDAO.verificarExistenciaCliente(novoCliente.getPrimeiroNome(), novoCliente.getSegundoNome())){
-				clienteDAO.adicionarCliente(novoCliente);
+				try {
+					clienteDAO.adicionarCliente(novoCliente);
+				} catch (ClienteException e) {
+					retorno = Resposta.respostaErro(e.getMessage());
+				}
 				retorno = Resposta.respostaSucesso();
 			}else{
 				String msg = "Cliente "+ novoCliente.getPrimeiroNome()+ " " + novoCliente.getSegundoNome() + " já cadastrado.";

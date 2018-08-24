@@ -23,6 +23,19 @@ public class Item {
 		this.custo   = custo;
 		this.quantidade = quantidade;
 	}
+	
+	public boolean validarItem(int modo){
+		boolean retorno = false;
+		if(modo == 1){
+			// validar 2 campos
+			retorno = this.getCusto() > 0 && this.getQuantidade() > 0;
+		}else{
+			// validar todos os campos
+			retorno = this.getVenda() != null && this.getProduto() != null && this.getCusto() > 0 && 
+					  this.getQuantidade() > 0 && this.getCodItem() > 0;
+		}
+		return retorno;
+	}
 
 	public Venda getVenda() {
 		return venda;

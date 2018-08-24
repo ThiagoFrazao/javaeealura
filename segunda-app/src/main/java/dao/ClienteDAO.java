@@ -19,7 +19,7 @@ public class ClienteDAO {
 	@Inject
 	private ConexaoDAO dao;	
 	
-	public int adicionarCliente(Cliente novoCliente){
+	public int adicionarCliente(Cliente novoCliente) throws ClienteException{
 		
 		int retorno = -1;
 		String sql = "insert into CLIENTE (PRIMNOME,SEGNOME,RUA,CIDADE) values (?,?,?,?)";
@@ -35,10 +35,13 @@ public class ClienteDAO {
 			
 			retorno = stmt.executeUpdate();
 			stmt.close();
+			con.close();
 			
 		} catch (SQLException e) {
 			System.out.println("SQLException " + e.getMessage() + "\n Classe ClienteDAO \n Metodo adicionarCliente.");
 			e.printStackTrace();
+			throw new ClienteException();
+			
 		}
 		
 		return retorno;
@@ -60,6 +63,7 @@ public class ClienteDAO {
 			if(rs.next() == false){
 				rs.close();
 				stmt.close();
+				con.close();
 				String msg = "O ID informado não correspende a um usuario.";
 				throw new ClienteException(msg);
 			}
@@ -72,10 +76,12 @@ public class ClienteDAO {
 			
 			rs.close();
 			stmt.close();
+			con.close();
 			
 		} catch (SQLException e) {
 			System.out.println("SQLException " + e.getMessage() + "\n Classe CostumerDAO \n Metodo recuperarCustomer(id)");
 			e.printStackTrace();
+			throw new ClienteException();
 		}
 		
 		return retorno;	
@@ -96,6 +102,7 @@ public class ClienteDAO {
 			if(rs.next() == false){
 				rs.close();
 				stmt.close();
+				con.close();
 				String msg = "O Nome informado não correspende a um Cliente.";
 				throw new ClienteException(msg);
 			}
@@ -108,16 +115,18 @@ public class ClienteDAO {
 			
 			rs.close();
 			stmt.close();
+			con.close();
 			
 		} catch (SQLException e) {
 			System.out.println("SQLException " + e.getMessage());
 			e.printStackTrace();
+			throw new ClienteException();
 		}
 		
 		return retorno;	
 	}
 	
-	public List<Cliente> listarClientes(){
+	public List<Cliente> listarClientes() throws ClienteException{
 		List<Cliente> retorno = new ArrayList<Cliente>();
 		Cliente cliente;
 		String sql = "select * from CLIENTE";
@@ -139,10 +148,12 @@ public class ClienteDAO {
 			}
 			rs.close();
 			stmt.close();
+			con.close();
 			
 		} catch (SQLException e) {
 			System.out.println("SQLException " + e.getMessage());
 			e.printStackTrace();
+			throw new ClienteException();
 		}
 		
 		return retorno;
@@ -159,8 +170,9 @@ public class ClienteDAO {
 			stmt.setInt(1, id);
 			
 			retorno = stmt.executeUpdate();
-			if(retorno == 0){				
-				stmt.close();
+			stmt.close();
+			con.close();
+			if(retorno == 0){						
 				String msg = "O ID informado não correspende a um Cliente.";
 				throw new ClienteException(msg);				
 			}
@@ -172,6 +184,7 @@ public class ClienteDAO {
 				throw new ClienteException(msg);
 			}else{
 				e.printStackTrace();
+				throw new ClienteException();
 			}			
 		}
 		
@@ -190,8 +203,9 @@ public class ClienteDAO {
 			stmt.setString(2, segundoNome);
 			
 			retorno = stmt.executeUpdate();
-			if(retorno == 0){				
-				stmt.close();
+			stmt.close();
+			con.close();
+			if(retorno == 0){						
 				String msg = "O Nome informado não correspende a um Cliente.";
 				throw new ClienteException(msg);				
 			}
@@ -204,6 +218,7 @@ public class ClienteDAO {
 			}
 			else{
 				e.printStackTrace();
+				throw new ClienteException();
 			}	
 		}
 		
@@ -225,6 +240,7 @@ public class ClienteDAO {
 			
 			retorno = stmt.executeUpdate();
 			stmt.close();
+			con.close();
 			if(retorno == 0){
 				String msg = "O ID informado não corresponde a um Cliente.";
 				throw new ClienteException(msg);
@@ -232,6 +248,7 @@ public class ClienteDAO {
 		} catch (SQLException e) {
 			System.out.println("SQLException " + e.getMessage());
 			e.printStackTrace();
+			throw new ClienteException();
 		}
 		
 		return retorno;
@@ -254,6 +271,7 @@ public int atualizarCliente(String primeiroNome,String segundoNome, String novaR
 			
 			retorno = stmt.executeUpdate();
 			stmt.close();
+			con.close();
 			if(retorno == 0){
 				String msg = "O nome informado não corresponde a um Cliente.";
 				throw new ClienteException(msg);
@@ -261,13 +279,14 @@ public int atualizarCliente(String primeiroNome,String segundoNome, String novaR
 		} catch (SQLException e) {
 			System.out.println("SQLException " + e.getMessage());
 			e.printStackTrace();
+			throw new ClienteException();
 		}
 		
 		return retorno;
 		
 	}
 	
-	public boolean verificarExistenciaCliente(int id){
+	public boolean verificarExistenciaCliente(int id) throws ClienteException{
 		boolean retorno = false;
 		String sql = "select ID from CLIENTE where ID=?";
 		
@@ -281,10 +300,12 @@ public int atualizarCliente(String primeiroNome,String segundoNome, String novaR
 			
 			rs.close();
 			stmt.close();
+			con.close();
 			
 		} catch (SQLException e) {
 			System.out.println("SQLException \n" + e.getMessage());
 			e.printStackTrace();
+			throw new ClienteException();
 		}
 		
 		return retorno;
@@ -305,6 +326,7 @@ public int atualizarCliente(String primeiroNome,String segundoNome, String novaR
 			
 			rs.close();
 			stmt.close();
+			con.close();
 			
 		} catch (SQLException e) {
 			System.out.println("SQLException \n" + e.getMessage());

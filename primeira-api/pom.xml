@@ -7,6 +7,10 @@
   <version>0.0.1-SNAPSHOT</version>
   <name>java-ee-7 Maven Webapp</name>
   <url>http://maven.apache.org</url>
+  
+  <properties>
+  	<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  </properties>
     
   <dependencies>
   

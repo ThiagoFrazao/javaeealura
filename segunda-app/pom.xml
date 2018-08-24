@@ -8,6 +8,10 @@
   <name>segunda-app Maven Webapp</name>
   <url>http://maven.apache.org</url>
   
+    <properties>
+    	<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  	</properties>
+  
 
   <dependencies>
   
@@ -56,11 +60,18 @@
 	</dependency>
 	
 	<dependency>
-	<groupId>javax</groupId>
-			<artifactId>javaee-api</artifactId>
-			<version>7.0</version>
-			<scope>provided</scope>
-		</dependency>
+		<groupId>javax</groupId>
+		<artifactId>javaee-api</artifactId>
+		<version>7.0</version>
+		<scope>provided</scope>
+	</dependency>
+	
+	<dependency>
+    	<groupId>javax.servlet</groupId>
+    	<artifactId>javax.servlet-api</artifactId>
+    	<version>4.0.1</version>
+    	<scope>provided</scope>
+	</dependency>
   
     
   </dependencies>

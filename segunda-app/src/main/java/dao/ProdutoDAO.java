@@ -18,7 +18,7 @@ public class ProdutoDAO {
 	@Inject
 	private ConexaoDAO dao;	
 	
-	public int adicionarProduto(Produto novoProduto){
+	public int adicionarProduto(Produto novoProduto) throws ProdutoException{
 		
 		String sql = "insert into PRODUTO (NOME,PRECO) values(?,?)";
 		int retorno = -1;
@@ -32,10 +32,12 @@ public class ProdutoDAO {
 			
 			retorno = stmt.executeUpdate();
 			stmt.close();			
+			con.close();
 			
 		} catch (SQLException e) {
 			System.out.println("SQLException " + e.getMessage());
 			e.printStackTrace();
+			throw new ProdutoException();
 		}
 		
 		return retorno;		
@@ -53,6 +55,7 @@ public class ProdutoDAO {
 			
 			retorno = stmt.executeUpdate();
 			stmt.close();
+			con.close();
 			if(retorno == 0){
 				String msg = "O ID informado não corresponde a um produto";
 				throw new ProdutoException(msg);
@@ -60,6 +63,7 @@ public class ProdutoDAO {
 		} catch (SQLException e) {
 			System.out.println("SQLException " + e.getMessage());
 			e.printStackTrace();
+			throw new ProdutoException();
 		}		
 		return retorno;		
 	}
@@ -78,6 +82,7 @@ public class ProdutoDAO {
 			
 			retorno = stmt.executeUpdate();
 			stmt.close();
+			con.close();
 			if(retorno == 0){
 				String msg = "O ID informado não corresponde a um produto";
 				throw new ProdutoException(msg);
@@ -85,6 +90,7 @@ public class ProdutoDAO {
 		} catch (SQLException e) {
 			System.out.println("SQLException " + e.getMessage());
 			e.printStackTrace();
+			throw new ProdutoException();
 		}		
 		return retorno;		
 	}
@@ -104,6 +110,7 @@ public class ProdutoDAO {
 			if(!rs.next()){
 				rs.close();
 				stmt.close();
+				con.close();
 				String msg = "O ID informado não corresponde a um produto";
 				throw new ProdutoException(msg);
 			}
@@ -113,18 +120,20 @@ public class ProdutoDAO {
 			retorno.setPreco(rs.getFloat(3));
 			
 			rs.close();
-			stmt.close();		
+			stmt.close();
+			con.close();
 			
 		} catch (SQLException e) {
 			System.out.println("SQLException " + e.getMessage());
 			e.printStackTrace();
+			throw new ProdutoException();
 		}
 		
 		return retorno;
 		
 	}
 
-	public ArrayList<Produto> listarProdutos(){
+	public ArrayList<Produto> listarProdutos() throws ProdutoException{
 		
 		ArrayList<Produto> retorno = new ArrayList<Produto>();
 		Produto produto;
@@ -146,11 +155,12 @@ public class ProdutoDAO {
 			}
 			rs.close();
 			stmt.close();
-			
+			con.close();			
 			
 		} catch (SQLException e) {
 			System.out.println("SQLException " + e.getMessage());
 			e.printStackTrace();
+			throw new ProdutoException();
 		}
 				
 		return retorno;
@@ -171,6 +181,7 @@ public class ProdutoDAO {
 			retorno = rs.next();
 			rs.close();
 			stmt.close();
+			con.close();
 			
 		} catch (SQLException e) {
 			System.out.println("SQLException " + e.getMessage());

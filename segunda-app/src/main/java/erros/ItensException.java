@@ -11,4 +11,8 @@ public class ItensException extends Exception {
 		super(msg);
 	}
 	
+	public ItensException(){
+		super("Serviço requisitado esta indisponivel.");
+	}
+	
 }
