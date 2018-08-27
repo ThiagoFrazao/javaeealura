@@ -118,7 +118,7 @@ public class ItemController {
 		int custo = novoItem.getCusto();
 		
 		try {
-			if(novoItem.validarItem(2)){				
+			if(novoItem.validarItem()){				
 				itemDAO.atualizarItem(venda, produto, codItem, quantidade, custo);
 				retorno = Resposta.respostaSucesso();
 			}

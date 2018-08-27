@@ -3,6 +3,7 @@ package utils;
 import java.io.IOException;
 import java.nio.charset.UnsupportedCharsetException;
 
+import javax.ws.rs.core.Response;
 import javax.ws.rs.core.Response.Status;
 
 import org.apache.http.HttpEntity;
@@ -24,11 +25,11 @@ import erros.RecursoInvalidoException;
 
 public class ConexaoHTTP {
 	
-	private final static String PATH = "http://localhost:8080/java-ee-7/rest/estudo/javaee7/";	
+	private final static String PATH = "http://localhost:8080/segunda-app/rest/loja/";	
 	
 	
 	@SuppressWarnings("finally")
-	public static Resposta get(String recurso){
+	public static Response get(String recurso){
 		
 		String caminho = PATH + recurso;	
 		// Criando cliente para acessar recurso
@@ -36,7 +37,7 @@ public class ConexaoHTTP {
 		
 		// Criando recurso tipo GET
 		HttpGet get = new HttpGet(caminho);
-		Resposta retorno = new Resposta();
+		Response retorno = null;
 		
 		HttpResponse response = null;
 		HttpEntity entidade = null;
@@ -49,8 +50,8 @@ public class ConexaoHTTP {
 			// Recuperando resposta da requisicao
 			entidade= response.getEntity();
 			if(entidade != null){
-				retorno.setMensagem(EntityUtils.toString(entidade));
-				retorno.setStatus(Status.OK);
+				retorno = Response.status(Status.OK).entity(EntityUtils.toString(entidade)).build();
+				
 			}
 			else{
 				throw new RecursoInvalidoException();
@@ -60,20 +61,20 @@ public class ConexaoHTTP {
 		} catch (ClientProtocolException e) {
 			System.out.println("Erro protocolo de cliente " + e.getMessage());
 			
-			retorno.setMensagem("Ocorreu um erro inesperado.");
-			retorno.setStatus(Status.BAD_REQUEST);
+			/*retorno.setMensagem("Ocorreu um erro inesperado.");
+			retorno.setStatus(Status.BAD_REQUEST);*/
 			
 		} catch (IOException e) {
 			System.out.println("Erro de I/O " + e.getMessage());
-			
+		/*	
 			retorno.setMensagem("Ocorreu um erro inesperado.");
-			retorno.setStatus(Status.BAD_REQUEST);
+			retorno.setStatus(Status.BAD_REQUEST);*/
 			
 		} catch (RecursoInvalidoException e) {
 			System.out.println(e.getMessage());
-			
+			/*
 			retorno.setMensagem(e.getMessage());
-			retorno.setStatus(Status.BAD_REQUEST);	
+			retorno.setStatus(Status.BAD_REQUEST);	*/
 		} finally{
 			return retorno;
 		}

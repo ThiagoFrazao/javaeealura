@@ -30,10 +30,4 @@
     <Valve className="org.apache.catalina.valves.CometConnectionManagerValve" />
     -->
 
-    <Resource 
-    auth="Container" 
-    driverClassName="org.hsqldb.jdbcDriver" name="jdbc/hsqldb" type="javax.sql.DataSource" 
-    username="sa" password="" url="jdbc:hsqldb:file:C:/hsqldb/demo/estudo"     
-    />
-
 </Context>

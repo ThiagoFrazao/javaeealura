@@ -22,7 +22,7 @@ public class ConexaoDAO {
 		
 		Connection con = null;
 	    try {
-	    	
+	    	//DriverManager.getConnection("url","usuario","senha");
 	    	con = ds.getConnection();
 	    	
 			} catch (SQLException e) {	

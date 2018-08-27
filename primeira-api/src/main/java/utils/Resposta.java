@@ -23,6 +23,7 @@ public class Resposta {
 		String mensagem = formatarResposta(msg);
 		return Response.ok(mensagem).build();
 	}
+
 	
 	public static Response respostaSucesso(String msg, String metodo){
 		String mensagem = msg;

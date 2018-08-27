@@ -24,17 +24,17 @@ public class Item {
 		this.quantidade = quantidade;
 	}
 	
+	// validar todos os campos
+	public boolean validarItem(){	
+		
+		return this.getVenda() != null && this.getProduto() != null && this.getCusto() > 0 && 
+				  this.getQuantidade() > 0 && this.getCodItem() > 0;
+	}
+	
+	// validar 2 campos
 	public boolean validarItem(int modo){
-		boolean retorno = false;
-		if(modo == 1){
-			// validar 2 campos
-			retorno = this.getCusto() > 0 && this.getQuantidade() > 0;
-		}else{
-			// validar todos os campos
-			retorno = this.getVenda() != null && this.getProduto() != null && this.getCusto() > 0 && 
-					  this.getQuantidade() > 0 && this.getCodItem() > 0;
-		}
-		return retorno;
+		
+		return this.getCusto() > 0 && this.getQuantidade() > 0;
 	}
 
 	public Venda getVenda() {

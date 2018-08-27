@@ -71,7 +71,7 @@ public class ProdutoDAO {
 	public int atualizarProduto(int id, String novoNome, float novoPreco) throws ProdutoException{
 		
 		int retorno = -1;
-		String sql = "update PRODUTO set nome=?, preco=? where id=?";
+		String sql = "update PRODUTO set NOME=?, PRECO=? where ID=?";
 		
 		try {
 			Connection con = dao.getConexao();
@@ -93,6 +93,142 @@ public class ProdutoDAO {
 			throw new ProdutoException();
 		}		
 		return retorno;		
+	}
+	
+	public ArrayList<Produto> procurarProdutoMaior(float preco) throws ProdutoException{
+		ArrayList<Produto> retorno = new ArrayList<Produto>();
+		Produto produto = null;
+		String sql = "select * from PRODUTO where PRECO > ? order by PRECO";
+		
+		try {
+			Connection con = dao.getConexao();
+			PreparedStatement stmt = con.prepareStatement(sql);
+			stmt.setFloat(1, preco);
+			
+			ResultSet rs = stmt.executeQuery();
+			
+			if(rs.next()){
+				produto = new Produto();
+				produto.setId(rs.getInt(1));
+				produto.setNome(rs.getString(2));
+				produto.setPreco(rs.getFloat(3));
+				retorno.add(produto);
+			}else{
+				rs.close();
+				stmt.close();
+				con.close();				
+				String msg = "Nao ha Produtos nessa faixa de preco.";
+				throw new ProdutoException(msg);
+			}
+			
+			while(rs.next()){				
+				produto = new Produto();
+				produto.setId(rs.getInt(1));
+				produto.setNome(rs.getString(2));
+				produto.setPreco(rs.getFloat(3));		
+				retorno.add(produto);
+			}
+			rs.close();
+			stmt.close();
+			con.close();
+			
+		} catch (SQLException e) {			
+			e.printStackTrace();
+			throw new ProdutoException();
+		}
+		
+		return retorno;
+	}
+	
+	public ArrayList<Produto> procurarProdutoMenor(float preco) throws ProdutoException{
+		ArrayList<Produto> retorno = new ArrayList<Produto>();
+		Produto produto = null;
+		String sql = "select * from PRODUTO where PRECO < ? order by PRECO";
+		
+		try {
+			Connection con = dao.getConexao();
+			PreparedStatement stmt = con.prepareStatement(sql);
+			stmt.setFloat(1, preco);
+			
+			ResultSet rs = stmt.executeQuery();
+			
+			if(rs.next()){
+				produto = new Produto();
+				produto.setId(rs.getInt(1));
+				produto.setNome(rs.getString(2));
+				produto.setPreco(rs.getFloat(3));
+				retorno.add(produto);
+			}else{
+				rs.close();
+				stmt.close();
+				con.close();				
+				String msg = "Nao ha Produtos nessa faixa de preco.";
+				throw new ProdutoException(msg);
+			}
+			
+			while(rs.next()){				
+				produto = new Produto();
+				produto.setId(rs.getInt(1));
+				produto.setNome(rs.getString(2));
+				produto.setPreco(rs.getFloat(3));		
+				retorno.add(produto);
+			}
+			rs.close();
+			stmt.close();
+			con.close();
+			
+		} catch (SQLException e) {			
+			e.printStackTrace();
+			throw new ProdutoException();
+		}
+		
+		return retorno;
+	}
+	
+	public ArrayList<Produto> procurarProdutoFaixa(float menor, float maior) throws ProdutoException{
+		ArrayList<Produto> retorno = new ArrayList<Produto>();
+		Produto produto = null;
+		String sql = "select * from PRODUTO where PRECO < ? and PRECO > ? order by PRECO";
+		
+		try {
+			Connection con = dao.getConexao();
+			PreparedStatement stmt = con.prepareStatement(sql);
+			stmt.setFloat(1, menor);
+			stmt.setFloat(2, maior);
+			
+			ResultSet rs = stmt.executeQuery();
+			
+			if(rs.next()){
+				produto = new Produto();
+				produto.setId(rs.getInt(1));
+				produto.setNome(rs.getString(2));
+				produto.setPreco(rs.getFloat(3));
+				retorno.add(produto);
+			}else{
+				rs.close();
+				stmt.close();
+				con.close();				
+				String msg = "Nao ha Produtos nessa faixa de preco.";
+				throw new ProdutoException(msg);
+			}
+			
+			while(rs.next()){				
+				produto = new Produto();
+				produto.setId(rs.getInt(1));
+				produto.setNome(rs.getString(2));
+				produto.setPreco(rs.getFloat(3));		
+				retorno.add(produto);
+			}
+			rs.close();
+			stmt.close();
+			con.close();
+			
+		} catch (SQLException e) {			
+			e.printStackTrace();
+			throw new ProdutoException();
+		}
+		
+		return retorno;
 	}
 	
 	public Produto procurarProduto(int id) throws ProdutoException{
