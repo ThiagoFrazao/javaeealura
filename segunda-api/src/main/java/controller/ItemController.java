@@ -43,7 +43,7 @@ public class ItemController {
 	
 	@GET
 	@ManagedAsync
-	@Path("/venda/{idVenda}")
+	@Path("/find/venda/{idVenda}")
 	public void procurarItensVenda(@PathParam("idVenda") int idVenda, @Suspended AsyncResponse response){
 		Response retorno = null;
 		try {
@@ -58,7 +58,7 @@ public class ItemController {
 	
 	@GET
 	@ManagedAsync
-	@Path("/produto/{idProduto}")
+	@Path("/find/produto/{idProduto}")
 	public void procurarItensProduto(@PathParam("idProduto") int idProduto, @Suspended AsyncResponse response){
 		Response retorno = null;
 		try {
@@ -73,7 +73,7 @@ public class ItemController {
 	
 	@GET
 	@ManagedAsync
-	@Path("/{codItem}")
+	@Path("/find/{codItem}")
 	public void procurarItem(@PathParam("codItem") int codItem, @Suspended AsyncResponse response){
 		Response retorno = null;
 		try {
