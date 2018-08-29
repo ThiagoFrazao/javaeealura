@@ -29,27 +29,4 @@ public class ConexaoDAO {
 	    return con;
 	}
 	
-/*	
-	public static void main(String[] args) throws SQLException, NamingException {
-		
-		ConexaoDAO teste = new ConexaoDAO();
-		String sql = "select * from cliente";
-
-	    try {
-			PreparedStatement stmt = teste.getConexao().prepareStatement(sql);
-			
-			 ResultSet rs = stmt.executeQuery();
-			 
-			 while(rs.next()){
-				 System.out.println(rs.getString("primnome"));
-			 }
-				
-		} catch (SQLException e) {
-			System.out.println("SQLException " + e.getMessage());
-			e.printStackTrace();
-		}
-		
-	}
-*/
-	
 }
