@@ -35,7 +35,7 @@ public class ClienteController {
 	
 	@GET
 	@ManagedAsync
-	public void testeFuncionando(@Suspended AsyncResponse response){		
+	public void testeFuncionando(@Suspended AsyncResponse response){	
 		response.resume(Resposta.respostaSucesso("Servidor funcionando corretamente."));		
 	}
 	
@@ -60,7 +60,6 @@ public class ClienteController {
 	@Path("/find/{id}")
 	public void recuperarCliente(@PathParam("id") int id, @Suspended AsyncResponse response){
 		Response retorno = null;
-		
 		try {
 			Cliente cliente = clienteDAO.procurarCliente(id);
 			retorno = Resposta.montarResposta(Status.OK, cliente);
@@ -75,14 +74,12 @@ public class ClienteController {
 	@Path("/find")
 	public void recuperarCliente1(@QueryParam("primeiroNome") String primeiroNome, @QueryParam("segundoNome") String segundoNome, @Suspended AsyncResponse response){
 		Response retorno = null;
-		
-		try {
+		try {			
 			Cliente cliente = clienteDAO.procurarCliente(primeiroNome,segundoNome);
-			System.out.println("segundo nome" + segundoNome);
 			retorno = Resposta.montarResposta(Status.OK, cliente);
 		} catch (ClienteException e) {
 			retorno = Resposta.respostaErro(e.getMessage());
-		}
+	}
 		
 		response.resume(retorno);	
 	}
@@ -153,16 +150,7 @@ public class ClienteController {
 			retorno = Resposta.respostaSucesso();
 		} catch (ClienteException e) {
 			retorno = Resposta.respostaErro(e.getMessage());
-		}
-		
-		
+		}		
 		response.resume(retorno);
 	}
-	
-	
-	
-	
-	
-
-
 }
