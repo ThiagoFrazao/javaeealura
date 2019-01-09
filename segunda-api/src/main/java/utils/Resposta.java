@@ -42,8 +42,6 @@ public class Resposta {
 		return resposta;
 	}
 	
-	
-
 	public Status getStatus() {
 		return status;
 	}
