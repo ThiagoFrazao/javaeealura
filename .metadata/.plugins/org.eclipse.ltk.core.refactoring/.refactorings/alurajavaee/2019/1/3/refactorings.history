@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename type &apos;javaee.loja.dao.AtorDao&apos; to &apos;AutorDao&apos;&#x0D;&#x0A;- Original project: &apos;alurajavaee&apos;&#x0D;&#x0A;- Original element: &apos;javaee.loja.dao.AtorDao&apos;&#x0D;&#x0A;- Renamed element: &apos;javaee.loja.dao.AutorDao&apos;&#x0D;&#x0A;- Update references to refactored element&#x0D;&#x0A;- Update textual occurrences in comments and strings" description="Rename type &apos;AtorDao&apos;" flags="589830" id="org.eclipse.jdt.ui.rename.type" input="/src\/main\/java&lt;javaee.loja.dao{AtorDao.java[AtorDao" matchStrategy="1" name="AutorDao" qualified="false" references="true" similarDeclarations="false" stamp="1547496545645" textual="false" version="1.0"/>
+</session>

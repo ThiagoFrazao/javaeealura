@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:f="http://java.sun.com/jsf/core"
+	  xmlns:h="http://java.sun.com/jsf/html">
+<head>
+<meta charset="UTF-8"/>
+<title>Formulario para Livros</title>
+</head>
+<body>
+
+	<h:form>
+		<div>
+			<h:outputLabel value="Titulo" />
+			<h:inputText value="#{adminLivrosBean.livro.titulo}" />
+		</div>
+		<div>
+			<h:outputLabel value="Descrição" />
+			<h:inputTextarea rows="4" cols="20" value="#{adminLivrosBean.livro.descricao}" />
+		</div>
+		<div>
+			<h:outputLabel value="Número de Páginas" />
+			<h:inputText value="#{adminLivrosBean.livro.numPaginas}" />
+		</div>
+		<div>
+			<h:outputLabel value="Preço" />
+			<h:inputText value="#{adminLivrosBean.livro.preco}" />
+		</div>
+		<div>
+			<h:outputLabel value="Autores" />
+			<h:selectManyListbox value="#{adminLivrosBean.autoresId}" converter="javax.faces.Integer">
+				<f:selectItems value="#{adminLivrosBean.autores}" var="autor" itemValue="#{autor.id}" itemLabel="#{autor.nome}"   />
+			</h:selectManyListbox>
+		</div>
+		<h:commandButton value="Cadastrar" action="#{adminLivrosBean.salvar()}" />
+	</h:form>
+	<P/>
+	<p/>
+	<p/>	
+	<form action="../index.html">
+		<input type="submit" value="Home"/>
+	</form>
+
+
+</body>
+</html>

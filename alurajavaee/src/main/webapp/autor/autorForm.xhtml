@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:f="http://java.sun.com/jsf/core"
+	  xmlns:h="http://java.sun.com/jsf/html">
+<head>
+<meta charset="UTF-8"/>
+<title>Formulario para Autor</title>
+</head>
+<body>
+
+	<h:form>
+		<div>
+			<h:outputLabel value="Nome" />
+			<h:inputText value="#{adminAutorBean.autor.nome}" />
+		</div>
+		<h:commandButton value="Cadastrar" action="#{adminAutorBean.salvarAutor()}" />
+	</h:form>
+	<P/>
+	<p/>
+	<p/>	
+	<form action="../index.html">
+		<input type="submit" value="Home"/>
+	</form>
+
+
+</body>
+</html>
