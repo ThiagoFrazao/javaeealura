@@ -1,9 +1,11 @@
-package javaee.loja.beans;
+package javaee.loja.beans.livro;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import javax.enterprise.context.RequestScoped;
+import javax.faces.application.FacesMessage;
+import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import javax.inject.Named;
 import javax.transaction.Transactional;
@@ -21,18 +23,21 @@ public class AdminLivrosBean {
 	private LivroDao livroDao;
 	@Inject
 	private AutorDao autorDao;
+	@Inject
+	private FacesContext currentContext;
 	
 	private Livro livro = new Livro();
-	private List<Integer> autoresId = new ArrayList<Integer>();
+	private List<Integer> autoresId = new ArrayList<Integer>();	
 	
 	@Transactional
-	public void salvar(){
+	public String salvar(){
 		for(Integer autorId: autoresId){
 			livro.getAutores().add(new Autor(autorId));
 		}
 		livroDao.salvar(getLivro());
-		System.out.println("Livro " + livro.getTitulo()  +" cadastrado com sucesso.");
-		System.out.println("Autores atuais: " + autoresId);
+		currentContext.getExternalContext().getFlash().setKeepMessages(true);
+		currentContext.addMessage(null, new FacesMessage("Livro "+ livro.getTitulo()+ " cadastrado com sucesso."));
+		return "/livros/listaLivros?faces-redirect=true";
 	}	
 
 	public Livro getLivro() {

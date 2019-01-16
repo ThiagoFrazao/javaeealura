@@ -1,18 +1,32 @@
 <!DOCTYPE html>
 <html xmlns:h="http://java.sun.com/jsf/html">
 <head>
-<meta charset="ISO-8859-1">
+<meta charset="UTF-8">
 <title>Home de testes</title>
 </head>
 <body>
-<h1>Home com todos os botões</h1>
+<h1>Home com todos os botÃµes</h1>
+	
+	Livro
 	<form method="get" action="livros/livrosForm.xhtml">
 		<input type="submit" value="FormLivro"/>	
 	</form>
-
+	<p/>
+	<form method="get" action="livros/listaLivros.xhtml">
+		<input type="submit" value="ListaLivros"/>	
+	</form>
+	<p/>
+	
+	<div>Autor</div>
+	<p/>
 	<form method="get" action="autor/autorForm.xhtml">
 		<input type="submit" value="FormAutor"/>	
 	</form>
+	<p/>
+	<form method="get" action="autor/listaAutores.xhtml">
+		<input type="submit" value="ListaAutores"/>	
+	</form>
+	
 
 </body>
 </html>

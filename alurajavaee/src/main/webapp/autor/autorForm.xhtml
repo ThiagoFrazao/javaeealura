@@ -7,11 +7,11 @@
 <title>Formulario para Autor</title>
 </head>
 <body>
-
+	<h:messages />
 	<h:form>
 		<div>
 			<h:outputLabel value="Nome" />
-			<h:inputText value="#{adminAutorBean.autor.nome}" />
+			<h:inputText value="#{adminAutorBean.autor.nome}" required="true" />
 		</div>
 		<h:commandButton value="Cadastrar" action="#{adminAutorBean.salvarAutor()}" />
 	</h:form>

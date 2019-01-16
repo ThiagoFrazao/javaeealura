@@ -7,28 +7,33 @@
 <title>Formulario para Livros</title>
 </head>
 <body>
-
+	<h:messages />
 	<h:form>
 		<div>
 			<h:outputLabel value="Titulo" />
-			<h:inputText value="#{adminLivrosBean.livro.titulo}" />
+			<h:inputText value="#{adminLivrosBean.livro.titulo}" required="true"/>
 		</div>
 		<div>
 			<h:outputLabel value="Descrição" />
-			<h:inputTextarea rows="4" cols="20" value="#{adminLivrosBean.livro.descricao}" />
+			<h:inputTextarea rows="4" cols="20" value="#{adminLivrosBean.livro.descricao}"  />
 		</div>
 		<div>
 			<h:outputLabel value="Número de Páginas" />
-			<h:inputText value="#{adminLivrosBean.livro.numPaginas}" />
+			<h:inputText value="#{adminLivrosBean.livro.numPaginas}" required="true" >
+				<f:validateLongRange minimum="20"/>
+			</h:inputText>
 		</div>
 		<div>
 			<h:outputLabel value="Preço" />
-			<h:inputText value="#{adminLivrosBean.livro.preco}" />
+			<h:inputText value="#{adminLivrosBean.livro.preco}" required="true">
+				<f:validateDoubleRange minimum="0.50"/>
+			</h:inputText>
 		</div>
 		<div>
 			<h:outputLabel value="Autores" />
-			<h:selectManyListbox value="#{adminLivrosBean.autoresId}" converter="javax.faces.Integer">
-				<f:selectItems value="#{adminLivrosBean.autores}" var="autor" itemValue="#{autor.id}" itemLabel="#{autor.nome}"   />
+			<h:selectManyListbox value="#{adminLivrosBean.autoresId}" converter="javax.faces.Integer" 
+			                     required="true" requiredMessage="É necessário escolher ao menos um autor.">
+				<f:selectItems value="#{adminLivrosBean.autores}" var="autor" itemValue="#{autor.id}" itemLabel="#{autor.nome}"    />
 			</h:selectManyListbox>
 		</div>
 		<h:commandButton value="Cadastrar" action="#{adminLivrosBean.salvar()}" />
