@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:f="http://java.sun.com/jsf/core"
+	  xmlns:h="http://java.sun.com/jsf/html"
+	  xmlns:ui="http://java.sun.com/jsf/facelets">  
+<head>
+<meta charset="UTF-8"/>
+<title>Lista dos Livros Cadastrados</title>
+</head>
+<body>
+	
+	<h:messages />
+	
+	<h:dataTable var="livro" value="#{adminListaLivrosBean.listar()}">
+		<h:column>
+			<f:facet name="header">Titulo</f:facet>
+			#{livro.titulo}
+		</h:column>	
+		<h:column>
+			<f:facet name="header">Descricao</f:facet>
+			#{livro.descricao}
+		</h:column>
+		<h:column>
+			<f:facet name="header">Numero de Paginas</f:facet>
+			#{livro.numPaginas}
+		</h:column>
+		<h:column>
+			<f:facet name="header">Preco</f:facet>
+			#{livro.preco}
+		</h:column>
+		<h:column>
+			<f:facet name="header">Autores</f:facet>
+			<ui:repeat var="autor" value="#{livro.autores}">
+				#{autor.nome},	
+			</ui:repeat>			
+		</h:column>
+	</h:dataTable>
+	
+	<form action="../index.html">
+		<input type="submit" value="Home"/>
+	</form>
+	<p/>
+	<form action="./livrosForm.xhtml">
+		<input type="submit" value="Cadastrar Novo"/>
+	</form>
+
+</body>
+</html>

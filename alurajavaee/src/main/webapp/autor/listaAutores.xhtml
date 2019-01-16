@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:f="http://java.sun.com/jsf/core"
+	  xmlns:h="http://java.sun.com/jsf/html"
+	  xmlns:ui="http://java.sun.com/jsf/facelets">  
+<head>
+<meta charset="UTF-8"/>
+<title>Lista dos Autores Cadastrados</title>
+</head>
+<body>
+	
+	<h:messages />
+	
+	<h:dataTable var="autor" value="#{adminListaAutorBean.listaAutores()}">
+		<h:column>
+			<f:facet name="header">Nome</f:facet>
+			#{autor.nome}
+		</h:column>	
+	</h:dataTable>
+	
+	<form action="../index.html">
+		<input type="submit" value="Home"/>
+	</form>
+	<p/>
+	<form action="./autorForm.xhtml">
+		<input type="submit" value="Cadastrar Novo"/>
+	</form>
+	
+
+</body>
+</html>
