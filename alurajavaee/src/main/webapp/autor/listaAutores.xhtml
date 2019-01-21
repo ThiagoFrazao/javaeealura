@@ -11,20 +11,28 @@
 	
 	<h:messages />
 	
-	<h:dataTable var="autor" value="#{adminListaAutorBean.listaAutores()}">
+	<div>
+		<h:dataTable var="autor" value="#{adminListaAutorBean.listaAutores()}">
 		<h:column>
 			<f:facet name="header">Nome</f:facet>
 			#{autor.nome}
 		</h:column>	
-	</h:dataTable>
+		</h:dataTable>
+	</div>
+	<P />	
+	<div>
+		<form action="../index.html">
+			<input type="submit" value="Home"/>
+		</form>
+	</div>
 	
-	<form action="../index.html">
-		<input type="submit" value="Home"/>
-	</form>
 	<p/>
-	<form action="./autorForm.xhtml">
-		<input type="submit" value="Cadastrar Novo"/>
-	</form>
+	<div>
+		<form action="./autorForm.xhtml">
+			<input type="submit" value="Cadastrar Novo"/>
+		</form>
+	</div>
+	
 	
 
 </body>

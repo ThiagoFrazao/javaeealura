@@ -13,7 +13,7 @@
 	
 	<h:dataTable var="livro" value="#{adminListaLivrosBean.listar()}">
 		<h:column>
-			<f:facet name="header">Titulo</f:facet>
+			<f:facet name="header" >Titulo</f:facet>
 			#{livro.titulo}
 		</h:column>	
 		<h:column>
@@ -31,8 +31,14 @@
 		<h:column>
 			<f:facet name="header">Autores</f:facet>
 			<ui:repeat var="autor" value="#{livro.autores}">
-				#{autor.nome},	
+				<div>
+					#{autor.nome}	
+				</div>				
 			</ui:repeat>			
+		</h:column>
+		<h:column>
+			<f:facet name="header">Capa</f:facet>
+			<img src="#{request.contextPath}/file#{livro.pathCapaImg}" height="150" width="100"/>
 		</h:column>
 	</h:dataTable>
 	
