@@ -42,6 +42,10 @@ public class Livro {
 	@ManyToMany
 	private List<Autor> autores = new ArrayList<Autor>();
 	
+
+	public Integer getId() {
+		return id;
+	}	
 	public String getTitulo() {
 		return titulo;
 	}
@@ -88,7 +92,7 @@ public class Livro {
 	}
 	@Override
 	public String toString() {
-		return "Livro [id=" + id + ", preco=" + preco + ", numPaginas=" + numPaginas + ", titulo=" + titulo
+		return "Livro [id=" + getId() + ", preco=" + preco + ", numPaginas=" + numPaginas + ", titulo=" + titulo
 				+ ", descricao=" + descricao + ", autores=" + autores + "]";
 	}
 }

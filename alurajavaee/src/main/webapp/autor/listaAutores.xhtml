@@ -3,37 +3,43 @@
 	  xmlns:f="http://java.sun.com/jsf/core"
 	  xmlns:h="http://java.sun.com/jsf/html"
 	  xmlns:ui="http://java.sun.com/jsf/facelets">  
-<head>
+<h:head>
 <meta charset="UTF-8"/>
 <title>Lista dos Autores Cadastrados</title>
-</head>
-<body>
+<h:outputStylesheet library="css" name="bootstrap.min.css"/>
+<h:outputStylesheet library="css" name="style-admin.css"/>
+</h:head>
+<h:body>
+	<div class="container">	
+		<nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+		  <a class="navbar-brand" href="../index.xhtml">AluraJavaEE</a>
 	
-	<h:messages />
-	
-	<div>
-		<h:dataTable var="autor" value="#{adminListaAutorBean.listaAutores()}">
+		  <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+		    <ul class="navbar-nav mr-auto">
+		     <li class="nav-item ">
+		        <a class="nav-link" href="#{request.contextPath}/livros/livrosForm.xhtml">Cadastrar Livro</a>
+		      </li>
+		       <li class="nav-item ">
+		        <a class="nav-link" href="#{request.contextPath}/livros/listaLivros.xhtml">Listar Livros</a>
+		      </li>
+		      <li class="nav-item ">
+		        <a class="nav-link" href="autorForm.xhtml">Cadastrar Autor</a>
+		      </li>
+		       <li class="nav-item active">
+		        <a class="nav-link" href="#">Listar Autores</a>
+		      </li>
+		    </ul>
+		  </div>
+		</nav>
+		
+		<h:messages />		
+		<h2>Lista de Autores</h2>
+		<h:dataTable var="autor" value="#{adminListaAutorBean.listaAutores()}" class="table table-bordered table-hover">
 		<h:column>
 			<f:facet name="header">Nome</f:facet>
 			#{autor.nome}
 		</h:column>	
 		</h:dataTable>
 	</div>
-	<P />	
-	<div>
-		<form action="../index.html">
-			<input type="submit" value="Home"/>
-		</form>
-	</div>
-	
-	<p/>
-	<div>
-		<form action="./autorForm.xhtml">
-			<input type="submit" value="Cadastrar Novo"/>
-		</form>
-	</div>
-	
-	
-
-</body>
+</h:body>
 </html>
