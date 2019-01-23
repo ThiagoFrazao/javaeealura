@@ -22,7 +22,6 @@ public class FileServlet extends HttpServlet {
 	
 	@Override
 	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		
 		String path = req.getRequestURI().split("/file")[1];
 		Path pathToFile = Paths.get(path);
 		FileNameMap fileMap = URLConnection.getFileNameMap();

@@ -60,6 +60,12 @@
 				</ui:repeat>			
 			</h:column>
 			<h:column>
+				<f:facet name="header">Data de Publicação</f:facet>
+				<h:outputText value="#{livro.dataPublicacao.time}" >
+				<f:convertDateTime pattern="dd/MM/yyyy"/>
+			</h:outputText>
+			</h:column>
+			<h:column>
 				<f:facet name="header">Capa</f:facet>
 				<img src="#{request.contextPath}/file#{livro.pathCapaImg}" height="150" width="100"/>
 			</h:column>
