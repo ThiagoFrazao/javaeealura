@@ -30,9 +30,9 @@ public class LivroDao {
 	
 
 	public List<Livro> todosLivros() {
-		String jpql = "select l from Livro l";
+		String jpql = "select l from Livro l order by l.id desc";
 		//pega apenas os ultimos 5 livros como sendo Ultimos Lancamentos
-		return livroManager.createQuery(jpql, Livro.class).getResultList();
+		return livroManager.createQuery(jpql, Livro.class).setFirstResult(5).getResultList();
 	}
 
 	public Livro buscaPorId(Integer idLivro) {

@@ -37,22 +37,22 @@
 				<div>
 					<h:outputLabel value="Titulo" />
 				</div>			
-				<h:inputText value="#{adminLivrosBean.livro.titulo}" id="titulo" styleClass="form-control"/>
+				<h:inputText value="#{adminLivrosBean.livro.titulo}" required="true" id="titulo" styleClass="form-control"/>
 				<h:message for="titulo"/>
 			</div>
 			<div class="form-group">
 				<h:outputLabel value="Descrição" />
-				<h:inputTextarea rows="4" cols="20" value="#{adminLivrosBean.livro.descricao}" id="descricao" styleClass="form-control" />
+				<h:inputTextarea rows="4" cols="20" value="#{adminLivrosBean.livro.descricao}" required="true" id="descricao" styleClass="form-control" />
 				<h:message for="descricao"/>
 			</div>
 			<div class="form-group">
 				<h:outputLabel value="Número de Páginas" />
-				<h:inputText value="#{adminLivrosBean.livro.numPaginas}" id="numero_de_paginas" styleClass="form-control"/>
+				<h:inputText value="#{adminLivrosBean.livro.numPaginas}" required="true" id="numero_de_paginas" styleClass="form-control"/>
 				<h:message for="numero_de_paginas"/>
 			</div>
 			<div class="form-group">
 				<h:outputLabel value="Preço" />
-				<h:inputText value="#{adminLivrosBean.livro.preco}" id="preco" styleClass="form-control"/>
+				<h:inputText value="#{adminLivrosBean.livro.preco}" required="true" id="preco" styleClass="form-control"/>
 				<h:message for="preco"/>
 			</div>
 			<div>

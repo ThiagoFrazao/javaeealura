@@ -7,13 +7,24 @@ import java.util.List;
 import java.util.Set;
 
 import javax.enterprise.context.SessionScoped;
+import javax.inject.Inject;
 import javax.inject.Named;
+import javax.json.Json;
+import javax.json.JsonArrayBuilder;
+
+import javaee.loja.dao.UsuarioDao;
+import javaee.loja.dao.CompraDao;
 
 @Named
 @SessionScoped
 public class CarrinhoCompras implements Serializable {
 	private static final long serialVersionUID = 6030311931713431183L;
 	private Set<ItemVenda> itens = new HashSet<>();
+	
+	@Inject
+	private UsuarioDao usuarioDao;	
+	@Inject
+	private CompraDao compraDao;
 	
 	public void add(ItemVenda novoItem){
 		if(itens.contains(novoItem)){
@@ -28,12 +39,33 @@ public class CarrinhoCompras implements Serializable {
 		}		
 	}
 	
+
+	public void finalizar(Usuario usuario) {
+		Compra compra = new Compra();
+		compra.setUsuarioCompra(usuario);
+		compra.setItensCompra(this.toJson());
+		usuarioDao.salvar(usuario);
+		compraDao.salvar(compra);
+	}
+	
+	public String toJson(){
+		JsonArrayBuilder builder = Json.createArrayBuilder();
+		for (ItemVenda itemVenda : itens) {
+			builder.add(Json.createObjectBuilder()
+					        .add("titulo", itemVenda.getLivroVenda().getTitulo())
+					        .add("preco", itemVenda.getLivroVenda().getPreco())
+					        .add("quantidade", itemVenda.getQuantidade())
+					        .add("total", this.totalCarrinho()));
+		}
+		return builder.build().toString();
+	}
+	
 	public void remove(ItemVenda item) {
 		this.itens.remove(item);
 	}
 	
 	public float totalCarrinho(){
-		return (float) itens.stream().mapToDouble(item -> item.getLivroVenda().getPreco()).sum();
+		return (float) itens.stream().mapToDouble(item -> (item.getLivroVenda().getPreco() * item.getQuantidade()) ).sum();
 	}
 	
 	public int qntTotalItens(){		
@@ -47,5 +79,6 @@ public class CarrinhoCompras implements Serializable {
 	public void setItens(Set<ItemVenda> itens) {
 		this.itens = itens;
 	}
+
 	
 }
