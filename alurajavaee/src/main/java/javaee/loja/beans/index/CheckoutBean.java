@@ -25,10 +25,10 @@ public class CheckoutBean {
 		compra.setUsuarioCompra(usuario);
 		carrinhoCompras.finalizar(compra);		
 		
-		String contextName = faceContext.getExternalContext().getContextName();
+		String contextName = faceContext.getExternalContext().getRequestContextPath();
 		HttpServletResponse response = (HttpServletResponse) faceContext.getExternalContext().getResponse();
-		response.setStatus(307);
-		response.setHeader("Location", "/"+contextName+"/service/pagamento?id="+compra.getUuId());
+		response.setStatus(HttpServletResponse.SC_TEMPORARY_REDIRECT);
+		response.setHeader("Location", contextName+"/services/pagamento?id="+compra.getUuId());
 		return "/compra/finalizandoPagamento.xhtml?faces-redirect=true";
 	}
 	public Usuario getUsuario() {
@@ -43,6 +43,6 @@ public class CheckoutBean {
 	}
 	public void setUsuario(Usuario usuario) {
 		this.usuario = usuario;
-	}
-		
+	}		
+	
 }

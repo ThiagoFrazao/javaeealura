@@ -47,8 +47,7 @@ public class CarrinhoCompras implements Serializable {
 		compra.setItensCompra(this.toJson());
 		//usuarioDao.salvar(usuario);
 		compraDao.salvar(compra);
-		Pagamento pagamento = new Pagamento(this.totalCarrinho());
-		ClientUtils.pagarCompra(pagamento);
+		ClientUtils.pagarCompra(this.totalCarrinho());
 		
 		return "/compra/finalizandoPagamento.xhtml?faces-redirect=true";
 		

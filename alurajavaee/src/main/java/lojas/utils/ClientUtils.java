@@ -13,9 +13,10 @@ public class ClientUtils {
 	private static final String ROOT_PATH = "http://localhost:8080/rest-endpoint/endpoint/";
 	
 	
-	public static String pagarCompra(Pagamento pagamento){
+	public static String pagarCompra(float valor){
 		
 		Client client = ClientBuilder.newClient();
+		Pagamento pagamento = new Pagamento(valor);
 		Entity<Pagamento> json = Entity.json(pagamento);
 		WebTarget target =  client.target(ROOT_PATH + "alura/pagamento");
 		Builder request = target.request();

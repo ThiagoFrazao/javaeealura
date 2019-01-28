@@ -20,4 +20,9 @@ public class CompraDao implements Serializable {
 		compraManager.persist(compra);
 	}
 
+	public Compra buscaPorUuid(String uuid) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }
