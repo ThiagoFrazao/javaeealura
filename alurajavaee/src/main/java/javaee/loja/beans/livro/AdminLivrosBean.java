@@ -29,6 +29,7 @@ public class AdminLivrosBean {
 	@Inject
 	private FacesContext currentContext;	
 	
+	
 	//Variavel para imagens e outros arquivos
 	private Part imgCapa;
 	

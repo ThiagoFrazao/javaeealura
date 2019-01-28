@@ -12,19 +12,22 @@ import javax.inject.Named;
 import javax.json.Json;
 import javax.json.JsonArrayBuilder;
 
-import javaee.loja.dao.UsuarioDao;
 import javaee.loja.dao.CompraDao;
+import javaee.loja.dao.UsuarioDao;
+import lojas.utils.ClientUtils;
 
 @Named
 @SessionScoped
 public class CarrinhoCompras implements Serializable {
+	
 	private static final long serialVersionUID = 6030311931713431183L;
 	private Set<ItemVenda> itens = new HashSet<>();
 	
 	@Inject
-	private UsuarioDao usuarioDao;	
-	@Inject
 	private CompraDao compraDao;
+	@Inject
+	private UsuarioDao usuarioDao;	
+	
 	
 	public void add(ItemVenda novoItem){
 		if(itens.contains(novoItem)){
@@ -40,12 +43,25 @@ public class CarrinhoCompras implements Serializable {
 	}
 	
 
-	public void finalizar(Usuario usuario) {
-		Compra compra = new Compra();
-		compra.setUsuarioCompra(usuario);
+	public String finalizar(Compra compra) {		
 		compra.setItensCompra(this.toJson());
-		usuarioDao.salvar(usuario);
+		//usuarioDao.salvar(usuario);
 		compraDao.salvar(compra);
+		Pagamento pagamento = new Pagamento(this.totalCarrinho());
+		ClientUtils.pagarCompra(pagamento);
+		
+		return "/compra/finalizandoPagamento.xhtml?faces-redirect=true";
+		
+	}
+	
+	public List<String> getTitulosLivros(){
+		List<String> retorno = new ArrayList<>();
+		
+		for(ItemVenda venda : itens){
+			retorno.add(venda.getLivroVenda().getTitulo());
+		}
+		
+		return retorno;
 	}
 	
 	public String toJson(){
