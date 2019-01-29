@@ -47,10 +47,9 @@ public class CarrinhoCompras implements Serializable {
 		compra.setItensCompra(this.toJson());
 		//usuarioDao.salvar(usuario);
 		compraDao.salvar(compra);
-		ClientUtils.pagarCompra(this.totalCarrinho());
+		ClientUtils.pagarCompra(this.totalCarrinho());		
 		
-		return "/compra/finalizandoPagamento.xhtml?faces-redirect=true";
-		
+		return "/compra/finalizandoPagamento.xhtml?faces-redirect=true";		
 	}
 	
 	public List<String> getTitulosLivros(){
