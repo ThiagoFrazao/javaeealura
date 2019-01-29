@@ -1,8 +1,5 @@
 package javaee.loja.models;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class Pagamento {
 	
 	private float valor;
