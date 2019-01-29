@@ -24,6 +24,7 @@ public class Compra {
 	private String itensCompra;
 	
 	private String uuId;
+	
 
 	public Compra(){
 		
