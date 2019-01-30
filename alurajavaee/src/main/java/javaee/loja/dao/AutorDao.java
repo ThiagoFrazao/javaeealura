@@ -4,18 +4,17 @@ import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-
-import org.hibernate.jpa.QueryHints;
+import javax.persistence.PersistenceContextType;
 
 import javaee.loja.models.Autor;
 
 public class AutorDao {
 	
-	@PersistenceContext
+	@PersistenceContext(type=PersistenceContextType.EXTENDED)
 	private EntityManager autorManager;
 	
 	public List<Autor> listarAutores(){
-		return autorManager.createQuery("select atores from Autor atores", Autor.class).setHint(QueryHints.HINT_CACHEABLE, true).getResultList();
+		return autorManager.createQuery("select atores from Autor atores", Autor.class).getResultList();
 	}
 	
 	public void salvarAutor(Autor novoAutor){

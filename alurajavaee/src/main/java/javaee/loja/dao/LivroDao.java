@@ -5,14 +5,13 @@ import java.util.List;
 import javax.persistence.Cache;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-
-import org.hibernate.jpa.QueryHints;
+import javax.persistence.PersistenceContextType;
 
 import javaee.loja.models.Livro;
 
 public class LivroDao {
 	
-	@PersistenceContext()
+	@PersistenceContext(type=PersistenceContextType.EXTENDED)
 	private EntityManager livroManager;	
 	
 	public void salvar(Livro livro){
@@ -25,23 +24,19 @@ public class LivroDao {
 	}
 
 	public List<Livro> ultimosLancamentos() {
-		String jpql = "select l from Livro l order by l.id desc";
+		String jpql = "select l from Livro l join fetch l.autores order by l.id desc";
 		//pega apenas os ultimos 5 livros como sendo Ultimos Lancamentos
 		return livroManager.createQuery(jpql, Livro.class)
 						   .setMaxResults(5)
-						   .setHint(QueryHints.HINT_CACHEABLE, true)
-						   .setHint(QueryHints.HINT_CACHE_REGION, "ult-lancamentos")
 						   .getResultList();
 	}
 	
 
 	public List<Livro> todosLivros() {
-		String jpql = "select l from Livro l order by l.id desc";		
+		String jpql = "select l from Livro l join fetch l.autores order by l.id desc";		
 		//pega apenas os ultimos 5 livros como sendo Ultimos Lancamentos
 		return livroManager.createQuery(jpql, Livro.class)
 						   .setFirstResult(5)
-						   .setHint(QueryHints.HINT_CACHEABLE, true)
-						   .setHint(QueryHints.HINT_CACHE_REGION, "todos-livros")
 						   .getResultList();
 	}
 

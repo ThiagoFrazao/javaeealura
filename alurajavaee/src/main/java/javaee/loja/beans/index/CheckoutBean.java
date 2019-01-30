@@ -1,9 +1,7 @@
 package javaee.loja.beans.index;
 
 import javax.enterprise.inject.Model;
-import javax.faces.context.FacesContext;
 import javax.inject.Inject;
-import javax.servlet.http.HttpServletResponse;
 import javax.transaction.Transactional;
 
 import javaee.loja.models.CarrinhoCompras;
@@ -15,21 +13,13 @@ public class CheckoutBean {
 	
 	@Inject
 	private CarrinhoCompras carrinhoCompras;
-	@Inject
-	private FacesContext faceContext;
 	private Usuario usuario = new Usuario();
 	
 	@Transactional
-	public String  finalizar(){
+	public void  finalizar(){
 		Compra compra = new Compra();
 		compra.setUsuarioCompra(usuario);
-		carrinhoCompras.finalizar(compra);		
-		
-		String contextName = faceContext.getExternalContext().getRequestContextPath();
-		HttpServletResponse response = (HttpServletResponse) faceContext.getExternalContext().getResponse();
-		response.setStatus(HttpServletResponse.SC_TEMPORARY_REDIRECT);
-		response.setHeader("Location", contextName+"/services/pagamento?id="+compra.getUuId());
-		return "/compra/finalizandoPagamento.xhtml?faces-redirect=true";
+		carrinhoCompras.finalizar(compra);			
 	}
 	public Usuario getUsuario() {
 		return usuario;

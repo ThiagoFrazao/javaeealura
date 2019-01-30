@@ -27,6 +27,8 @@ public class CarrinhoCompras implements Serializable {
 	private CompraDao compraDao;
 	@Inject
 	private UsuarioDao usuarioDao;	
+	@Inject
+	private ClientUtils myClient;
 	
 	
 	public void add(ItemVenda novoItem){
@@ -46,8 +48,9 @@ public class CarrinhoCompras implements Serializable {
 	public String finalizar(Compra compra) {		
 		compra.setItensCompra(this.toJson());
 		//usuarioDao.salvar(usuario);
-		compraDao.salvar(compra);
-		ClientUtils.pagarCompra(this.totalCarrinho());		
+		//compraDao.salvar(compra);
+		myClient.pagarCompra(this.totalCarrinho());		
+		myClient.sendMail(compra);
 		
 		return "/compra/finalizandoPagamento.xhtml?faces-redirect=true";		
 	}
