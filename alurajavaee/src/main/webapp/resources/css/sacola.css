@@ -1,6 +1,5 @@
 .sacola {
 	display: inline-block;
-	background-color: #FFF;
 	width:55px;
 	text-align: center;
 	position: relative;
@@ -15,7 +14,6 @@
 }
 
 .sacola-icone {
-	position:absolute;
-	top: 12px;
-	left: 17px;
+	position:relative;
+	top: 10px;
 }

@@ -22,9 +22,7 @@ public class CarrinhoComprasBean {
 	public String add(Integer idLivro){
 		Livro livro = livroDao.buscaPorId(idLivro);
 		carrinhoCompras.add(new ItemVenda(livro));
-		String retorno = "/carrinho?faces-redirect=true";
-		System.out.println("Estou retornando..." + retorno);
-		return retorno;
+		return "/carrinho?faces-redirect=true";
 	}
 	
 	public void remove(ItemVenda item){

@@ -24,7 +24,7 @@ public class LivroDao {
 	}
 
 	public List<Livro> ultimosLancamentos() {
-		String jpql = "select l from Livro l join fetch l.autores order by l.id desc";
+		String jpql = "select distinct(l) from Livro l join fetch l.autores order by l.id desc";
 		//pega apenas os ultimos 5 livros como sendo Ultimos Lancamentos
 		return livroManager.createQuery(jpql, Livro.class)
 						   .setMaxResults(5)
@@ -33,7 +33,7 @@ public class LivroDao {
 	
 
 	public List<Livro> todosLivros() {
-		String jpql = "select l from Livro l join fetch l.autores order by l.id desc";		
+		String jpql = "select distinct(l) from Livro l join fetch l.autores order by l.id desc";		
 		//pega apenas os ultimos 5 livros como sendo Ultimos Lancamentos
 		return livroManager.createQuery(jpql, Livro.class)
 						   .setFirstResult(5)

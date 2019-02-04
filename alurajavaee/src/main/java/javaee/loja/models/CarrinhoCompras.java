@@ -50,7 +50,8 @@ public class CarrinhoCompras implements Serializable {
 		//usuarioDao.salvar(usuario);
 		//compraDao.salvar(compra);
 		myClient.pagarCompra(this.totalCarrinho());		
-		myClient.sendMail(compra);
+		//myClient.sendMail(compra);
+		this.itens = new HashSet<>();
 		
 		return "/compra/finalizandoPagamento.xhtml?faces-redirect=true";		
 	}
