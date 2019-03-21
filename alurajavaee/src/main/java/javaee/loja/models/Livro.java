@@ -23,9 +23,11 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 import org.hibernate.validator.constraints.NotBlank;
 
+@SuppressWarnings("deprecation")
 @Entity
 @XmlRootElement
 @XmlAccessorType(XmlAccessType.FIELD)
+
 public class Livro {
 	
 	@Id @GeneratedValue(strategy=GenerationType.IDENTITY)

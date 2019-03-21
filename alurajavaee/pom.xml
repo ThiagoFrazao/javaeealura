@@ -36,6 +36,12 @@
 	</dependency>
 	
 	<dependency>
+	    <groupId>org.hibernate.validator</groupId>
+	    <artifactId>hibernate-validator</artifactId>
+	    <version>6.0.15.Final</version>
+	</dependency>
+	
+	<dependency>
     <groupId>javax.transaction</groupId>
     <artifactId>javax.transaction-api</artifactId>
     <version>1.2</version>
@@ -54,6 +60,15 @@
 	    <version>4.3.10.Final</version>
 	    <scope>provided</scope>
 	</dependency>
+	
+	<dependency>
+	    <groupId>javax.faces</groupId>
+	    <artifactId>jsf-api</artifactId>
+	    <version>2.1</version>
+	    <scope>provided</scope>
+	</dependency>
+	
+	
 	
 	<!-- Dependencia Cache de Pagina -->
 	<dependency>

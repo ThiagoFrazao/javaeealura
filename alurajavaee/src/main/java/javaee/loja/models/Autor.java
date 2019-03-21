@@ -7,11 +7,13 @@ import javax.persistence.Id;
 
 import org.hibernate.validator.constraints.NotBlank;
 
+@SuppressWarnings("deprecation")
 @Entity
 public class Autor {
 	
 	@Id @GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer id;
+
 	@NotBlank
 	private String nome;
 	

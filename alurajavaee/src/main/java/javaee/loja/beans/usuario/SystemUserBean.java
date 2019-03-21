@@ -38,6 +38,10 @@ public class SystemUserBean {
 		return request.isUserInRole(role);
 	}	
 	
+	public void logout(){
+		this.current = new SystemUser("");
+	}
+	
 	@Transactional
 	public void salvarUsuario(SystemUser systemUser){
 		this.securityDao.salvar(systemUser);

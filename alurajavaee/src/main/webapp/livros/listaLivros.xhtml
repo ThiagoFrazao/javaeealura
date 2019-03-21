@@ -12,7 +12,7 @@
 <h:outputStylesheet library="css" name="style-admin.css"/>
 </h:head>
 <h:body>
-	<div class="container">			
+		
 		<nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
 		  <a class="navbar-brand" href="../index.xhtml">AluraJavaEE</a>
 	
@@ -52,7 +52,7 @@
 		    </ul>
 		  </div>
 		</nav>
-		
+		<div class="container">		
 		<h:messages />
 		<h2>Lista de Livros</h2>
 		<h:dataTable var="livro" value="#{adminListaLivrosBean.listar()}" class="table table-bordered table-hover">			

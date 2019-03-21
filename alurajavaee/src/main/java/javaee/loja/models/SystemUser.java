@@ -13,6 +13,7 @@ import javax.persistence.ManyToMany;
 import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotBlank;
 
+@SuppressWarnings("deprecation")
 @Entity
 public class SystemUser {
 	
@@ -29,6 +30,14 @@ public class SystemUser {
 	
 	@ManyToMany(fetch=FetchType.EAGER)
 	private List<SystemRole> roles = new ArrayList<>();
+	
+	public SystemUser(){
+		
+	}
+	
+	public SystemUser(String nome){
+		this.nome = nome;		
+	}
 	
 	public Integer getId() {
 		return id;
