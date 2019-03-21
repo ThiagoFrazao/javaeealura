@@ -1,0 +1,22 @@
+1548089524358	Rename resource 'index.html'
+1548089972328	Copy file
+1548089978504	Rename resource 'index2.xhtml'
+1548089996755	Delete element
+1548090002808	Rename resource 'oldIndex.html'
+1548090028390	Rename resource 'index.html'
+1548091902330	Delete element
+1548094358144	Encapsulate field 'id'
+1548094685590	Delete element
+1548094690574	Move 'detalhe-livro.xhtml' to 'webapp'
+1548094701515	Delete element
+1548094708715	Move 'detalhe-livro.xhtml' to 'livros'
+1548094851359	Rename resource 'detalhe-livro.xhtml'
+1548095071281	Encapsulate field 'idLivro'
+1548095150564	Encapsulate field 'livro'
+1548265805827	Rename field 'carrinho'
+1548354556709	Rename type 'compraDao'
+1548354623036	Delete element
+1548436360038	Rename method 'doRequest'
+1548436373022	Rename method 'oagarCarrinho'
+1548438402473	Rename package 'javaee.loja.conf'
+1548439568698	Rename package 'javaee.loja.producers'

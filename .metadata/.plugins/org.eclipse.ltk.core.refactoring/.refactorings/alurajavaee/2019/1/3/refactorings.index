@@ -1,1 +1,19 @@
-1547496545645	Rename type 'AtorDao'
+1547570601859	Move compilation unit
+1547570629680	Move compilation unit
+1547571887781	Delete element
+1547580878300	Encapsulate field 'autores'
+1547580990787	Move 'listaAutores.xhtml' to 'autor'
+1547583564863	Delete element
+1547583694898	Rename resource 'jsf_messages'
+1547665557662	Encapsulate field 'dataPublicacao'
+1547749340367	Rename local variable 'dataObj'
+1547750865942	Encapsulate field 'imgCapa'
+1547755860386	Encapsulate field 'pathCapaImg'
+1547756872821	Rename local variable 'imgCapa'
+1547756965303	Rename local variable 'pathCapaImg'
+1547757041700	Rename field 'serverFolder'
+1547757231178	Rename local variable 'finalImgPath'
+1547757240819	Rename field 'SERVER_FOLDER'
+1547757411959	Encapsulate field 'SYSTEM_PATH'
+1547830288083	Rename method 'saveImg'
+1547832679675	Encapsulate field 'endereco'

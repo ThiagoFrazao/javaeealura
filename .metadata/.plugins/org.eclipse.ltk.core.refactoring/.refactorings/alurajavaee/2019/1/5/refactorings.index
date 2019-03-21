@@ -1,0 +1,25 @@
+1548695450738	Copy compilation unit
+1548695791308	Copy file
+1548695794563	Rename resource 'checkout2.xhtml'
+1548695814554	Copy file
+1548695819700	Delete element
+1548695821954	Copy file
+1548695834272	Delete element
+1548695837363	Rename resource 'listaLivros.xhtml'
+1548695864395	Delete element
+1548695867658	Copy file
+1548695870332	Rename resource 'livrosForm.xhtml'
+1548696526501	Delete element
+1548696763384	Move 'finalizandoPagamento.xhtml' to 'compra'
+1548698158673	Copy compilation unit
+1548705950889	Delete element
+1548705956785	Delete element
+1548866885415	Rename type 'LivroCResources'
+1548867149261	Rename package 'javaee.loja.resources'
+1548878260153	Rename local variable 'message'
+1548881616024	Delete element
+1548952696580	Rename method 'sendMail'
+1548958449160	Rename method 'sendEmal'
+1548959741770	Move 'beans.xml' to 'META-INF'
+1548960576135	Move 'livro-detalhe.xhtml' to 'compra'
+1548963789486	Delete element

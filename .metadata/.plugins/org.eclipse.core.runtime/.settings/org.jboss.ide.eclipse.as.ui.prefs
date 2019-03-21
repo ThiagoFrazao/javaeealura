@@ -1,9 +1,10 @@
 eclipse.preferences.version=1
-org.jboss.ide.eclipse.as.ui.defaultWebServer=WildFly 10.x1547058685642
+org.jboss.ide.eclipse.as.ui.defaultWebServer=WildFly 10.x1547572674262
 org.jboss.ide.eclipse.as.ui.preferences.disabled.automatic.server.view=true
 org.jboss.ide.eclipse.as.ui.preferences.enabledDecorators.1=true
+org.jboss.ide.eclipse.as.ui.preferences.runtime.last.type.org.jboss.ide.eclipse.as.runtime.eap.70=C\:\\Users\\E514189\\Documents\\JavaArquivos\\jboss-eap-7.0.0\\jboss-eap-7.0
 org.jboss.ide.eclipse.as.ui.preferences.runtime.last.type.org.jboss.ide.eclipse.as.runtime.wildfly.100=C\:\\Users\\E514189\\Documents\\Alura\\wildfly-10.1.0.Final\\wildfly-10.1.0.Final
-org.jboss.ide.eclipse.as.ui.wizards.LAST_RUNTIME_CREATED=WildFly 10.x Runtime 1
-org.jboss.ide.eclipse.as.ui.wizards.LAST_RUNTIME_TYPE_CREATED=org.jboss.ide.eclipse.as.runtime.wildfly.100
-org.jboss.ide.eclipse.as.ui.wizards.LAST_SERVER_CREATED=WildFly 10.x1547058685642
-org.jboss.ide.eclipse.as.ui.wizards.LAST_SERVER_TYPE_CREATED=org.jboss.ide.eclipse.as.wildfly.100
+org.jboss.ide.eclipse.as.ui.wizards.LAST_RUNTIME_CREATED=JBoss EAP 7.x Runtime
+org.jboss.ide.eclipse.as.ui.wizards.LAST_RUNTIME_TYPE_CREATED=org.jboss.ide.eclipse.as.runtime.eap.70
+org.jboss.ide.eclipse.as.ui.wizards.LAST_SERVER_CREATED=Red Hat JBoss EAP 7.x1548442183596
+org.jboss.ide.eclipse.as.ui.wizards.LAST_SERVER_TYPE_CREATED=org.jboss.ide.eclipse.as.eap.70

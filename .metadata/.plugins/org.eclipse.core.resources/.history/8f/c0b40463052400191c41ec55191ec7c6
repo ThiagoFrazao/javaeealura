@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:f="http://xmlns.jcp.org/jsf/core"
+	  xmlns:h="http://xmlns.jcp.org/jsf/html"
+	  xmlns:ui="http://java.sun.com/jsf/facelets">  
+<h:head>
+<meta charset="UTF-8"/>
+<title>Lista dos Livros Cadastrados</title>
+<h:outputStylesheet library="css" name="bootstrap.min.css"/>
+<h:outputStylesheet library="css" name="style-admin.css"/>
+</h:head>
+<h:body>
+	<div class="container">	
+	<nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+		  <a class="navbar-brand" href="../index.xhtml">AluraJavaEE</a>	
+		  <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+		    <ul class="navbar-nav mr-auto">
+		     <li class="nav-item ">
+		        <a class="nav-link" href="../livros/livrosForm.xhtml">Cadastrar Livro</a>
+		      </li>
+		       <li class="nav-item">
+		        <a class="nav-link" href="../livros/listaLivros.xhtml">Listar Livros</a>
+		      </li>
+		      <li class="nav-item ">
+		        <a class="nav-link" href="../autor/autorForm.xhtml">Cadastrar Autor</a>
+		      </li>
+		       <li class="nav-item">
+		        <a class="nav-link" href="../autor/listaAutores.xhtml">Listar Autores</a>
+		      </li>
+		    </ul>
+		  </div>
+		</nav>
+				
+		<div class="alert alert-success" role="alert">
+		  <h4 class="alert-heading">Pagamento realizado com sucesso.</h4>
+		  <ui:repeat var="titulo" value="#{carrinhoCompras.titulosLivros}">
+		  	<p><h:outputText value="#{titulo}"/></p>
+		  </ui:repeat>
+		  <p>Num total de R$ #{carrinhoCompras.totalCarrinho()}</p>
+		</div>		
+		<!-- <div>
+			<form action="../index.xhtml" >
+				<input type="submit" value="Home" class="form-control"/>
+			</form>			
+		</div> -->
+	</div>
+</h:body>
+</html>

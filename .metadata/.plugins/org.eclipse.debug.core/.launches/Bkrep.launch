@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<launchConfiguration type="org.eclipse.jdt.launching.localJavaApplication">
+<listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_PATHS">
+<listEntry value="/bkrep_nao_oficial/src/br/gov/caixa/broker/bkrep/Bkrep.java"/>
+</listAttribute>
+<listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_TYPES">
+<listEntry value="1"/>
+</listAttribute>
+<stringAttribute key="org.eclipse.jdt.launching.MAIN_TYPE" value="br.gov.caixa.broker.bkrep.Bkrep"/>
+<stringAttribute key="org.eclipse.jdt.launching.PROJECT_ATTR" value="bkrep_nao_oficial"/>
+</launchConfiguration>
